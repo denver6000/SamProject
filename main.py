@@ -913,36 +913,53 @@ class StudentInfoSystem:
         back_btn.grid(row=2, column=0, pady=10)
 
     def show_payroll_options(self):
-        """Show payroll print options: All, Renewed, Unrenewed"""
+        """Show payroll print options by renewal status and batch."""
         self.clear_window()
 
         self.root.grid_rowconfigure(0, weight=0)
-        self.root.grid_rowconfigure(1, weight=1)
+        self.root.grid_rowconfigure(1, weight=0)
         self.root.grid_rowconfigure(2, weight=0)
+        self.root.grid_rowconfigure(3, weight=0)
+        self.root.grid_rowconfigure(4, weight=0)
         self.root.grid_columnconfigure(0, weight=1)
 
         title = tk.Label(self.root, text="Print to Payroll", font=("Arial", 16, "bold"))
         title.grid(row=0, column=0, pady=15, padx=15, sticky="ew")  
 
         self.payroll_filter_var = tk.StringVar(value="all")
+        self.payroll_batch_var = tk.StringVar(value="All")
 
         radio_frame = tk.Frame(self.root)
-        radio_frame.grid(row=1, column=0, pady=10, padx=20, sticky="nsew")
+        radio_frame.grid(row=1, column=0, pady=10, padx=20, sticky="ew")
         radio_frame.grid_columnconfigure(0, weight=1)
 
         tk.Radiobutton(radio_frame, text="All Registered", variable=self.payroll_filter_var, value="all", font=("Arial", 12)).pack(fill="x", pady=5)
         tk.Radiobutton(radio_frame, text="Renewed", variable=self.payroll_filter_var, value="renewed", font=("Arial", 12)).pack(fill="x", pady=5)
         tk.Radiobutton(radio_frame, text="Not Renewed", variable=self.payroll_filter_var, value="unrenewed", font=("Arial", 12)).pack(fill="x", pady=5)
 
+        batch_frame = tk.Frame(self.root)
+        batch_frame.grid(row=2, column=0, pady=(0, 10), padx=20, sticky="ew")
+        batch_frame.grid_columnconfigure(1, weight=1)
+
+        tk.Label(batch_frame, text="Batch:", font=("Arial", 11, "bold")).grid(row=0, column=0, padx=(0, 10), sticky="w")
+        batch_combo = ttk.Combobox(
+            batch_frame,
+            textvariable=self.payroll_batch_var,
+            values=["All", "1", "2", "3", "4", "5", "6", "7"],
+            state="readonly",
+            font=("Arial", 11)
+        )
+        batch_combo.grid(row=0, column=1, sticky="ew")
+
         btn_export_payroll = tk.Button(self.root, text="Export Payroll", font=("Arial", 12), bg="#6a1b9a", fg="white",
                                        activebackground="#4a148c", activeforeground="white", padx=20, pady=15,
                                        command=self.print_to_payroll)
-        btn_export_payroll.grid(row=2, column=0, pady=10, padx=20, sticky="ew")
+        btn_export_payroll.grid(row=3, column=0, pady=10, padx=20, sticky="ew")
 
         back_btn = tk.Button(self.root, text="Back", font=("Arial", 11), padx=20, pady=10,
                              bg="#757575", fg="white", activebackground="#616161", activeforeground="white",
                              command=self.show_main_menu)
-        back_btn.grid(row=3, column=0, pady=10)
+        back_btn.grid(row=4, column=0, pady=10)
 
     def show_trash(self):
         """Display list of trashed students with restore/permanent-delete actions"""
@@ -1617,7 +1634,7 @@ class StudentInfoSystem:
         else:
             messagebox.showerror("Error", "Student not found")
     
-    def export_to_excel(self, filter_type='all', file_path=None, show_success=True):
+    def export_to_excel(self, filter_type='all', file_path=None, show_success=True, batch_filter='All'):
         """Export student data to Excel with separate sheets per batch"""
         if filter_type == 'renewed':
             students_to_export = [s for s in self.all_students if 'renewal_date' in s]
@@ -1625,6 +1642,9 @@ class StudentInfoSystem:
             students_to_export = [s for s in self.all_students if 'renewal_date' not in s]
         else:
             students_to_export = list(self.all_students)
+
+        if batch_filter != 'All':
+            students_to_export = [s for s in students_to_export if s.get('batch', '') == batch_filter]
 
         if not students_to_export:
             messagebox.showwarning("No Data", "No student data to export for selected filter")
@@ -1833,8 +1853,12 @@ class StudentInfoSystem:
             selected = list(self.all_students)
             selected.sort(key=lambda s: self.get_last_name_sort_key(s.get('full_name', '')))
 
+        batch_filter = getattr(self, 'payroll_batch_var', tk.StringVar(value='All')).get()
+        if batch_filter != 'All':
+            selected = [s for s in selected if s.get('batch', '') == batch_filter]
+
         if not selected:
-            messagebox.showwarning("No Data", "No student data to export for selected payroll filter")
+            messagebox.showwarning("No Data", "No student data to export for selected payroll filters")
             return
 
         template_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "PAYROLL_TEMPLATE.xlsx")
@@ -1852,12 +1876,13 @@ class StudentInfoSystem:
             return
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        export_folder = os.path.join(selected_path, f"student_exports_{filter_type}_{timestamp}")
+        batch_label = "all_batches" if batch_filter == "All" else f"batch_{batch_filter}"
+        export_folder = os.path.join(selected_path, f"student_exports_{filter_type}_{batch_label}_{timestamp}")
         os.makedirs(export_folder, exist_ok=True)
 
-        students_path = os.path.join(export_folder, f"student_list_{filter_type}.xlsx")
-        payroll_path = os.path.join(export_folder, f"payroll_{filter_type}.xlsx")
-        word_path = os.path.join(export_folder, f"payroll_{filter_type}.doc")
+        students_path = os.path.join(export_folder, f"student_list_{filter_type}_{batch_label}.xlsx")
+        payroll_path = os.path.join(export_folder, f"payroll_{filter_type}_{batch_label}.xlsx")
+        word_path = os.path.join(export_folder, f"payroll_{filter_type}_{batch_label}.doc")
 
         loading_window = self.show_export_loading()
         result_queue = queue.Queue()
@@ -1866,6 +1891,7 @@ class StudentInfoSystem:
             target=self.export_payroll_bundle,
             args=(
                 filter_type,
+                batch_filter,
                 selected,
                 template_path,
                 word_template_path,
@@ -1880,11 +1906,11 @@ class StudentInfoSystem:
         worker.start()
         self.poll_export_result(loading_window, result_queue)
 
-    def export_payroll_bundle(self, filter_type, selected, template_path, word_template_path,
+    def export_payroll_bundle(self, filter_type, batch_filter, selected, template_path, word_template_path,
                               export_folder, students_path, payroll_path, word_path, result_queue):
         """Create the student list, payroll Excel, and payroll Word files."""
         try:
-            if not self.export_to_excel(filter_type, students_path, show_success=False):
+            if not self.export_to_excel(filter_type, students_path, show_success=False, batch_filter=batch_filter):
                 raise RuntimeError("Student list export was cancelled or failed")
 
             wb = openpyxl.load_workbook(template_path)

@@ -89,10 +89,17 @@ The `Print to Payroll` flow exports three files into one generated folder:
 - `payroll_<filter>.xlsx`
 - `payroll_<filter>.doc`
 
+The payroll screen has two filters:
+
+- renewal status: all registered, renewed, or unrenewed
+- batch: all batches or one specific batch
+
+Both filters are applied to all three generated files.
+
 The app asks the user to select a parent folder. It then creates a timestamped folder:
 
 ```text
-student_exports_<filter>_<YYYYMMDD_HHMMSS>
+student_exports_<status_filter>_<batch_filter>_<YYYYMMDD_HHMMSS>
 ```
 
 The export runs asynchronously on a background thread. A modal loading dialog with an indeterminate progress bar is shown while files are being created.
@@ -199,4 +206,3 @@ Tkinter UI calls must stay on the main thread. Worker threads should not call `m
 - If Excel template save fails, close any open copies of generated `.xlsx` files.
 - Office temporary lock files like `~$PAYROLL_TEMPLATE.xlsx` should not be committed.
 - The project has no git repo by default in this workspace; initialize one separately if needed.
-
