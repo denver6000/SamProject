@@ -18,13 +18,7 @@
             "Proof of Enrollment": true,
             "School ID": true
         },
-        "registration_date": "2026-04-01",
-        "renewal_date": "2026-04-20",
-        "renewal_requirements": {
-            "Last grades from last semester": true,
-            "Liquidation of 5000 from LGU": true,
-            "Certification of enrollment": true
-        }
+        "registration_date": "2026-04-01"
     },
     {
         "full_name": "Mark Santos",
@@ -66,7 +60,13 @@
             "Proof of Enrollment": true,
             "School ID": false
         },
-        "registration_date": "2026-04-03"
+        "registration_date": "2026-04-03",
+        "renewal_date": "2026-04-29",
+        "renewal_requirements": {
+            "Last grades from last semester": true,
+            "Liquidation of 5000 from LGU": true,
+            "Certification of enrollment": true
+        }
     },
     {
         "full_name": "Carlo Mendoza",
@@ -87,13 +87,7 @@
             "Proof of Enrollment": true,
             "School ID": true
         },
-        "registration_date": "2026-04-04",
-        "renewal_date": "2026-04-21",
-        "renewal_requirements": {
-            "Last grades from last semester": true,
-            "Liquidation of 5000 from LGU": true,
-            "Certification of enrollment": true
-        }
+        "registration_date": "2026-04-04"
     },
     {
         "full_name": "Jessa Garcia",
@@ -177,13 +171,7 @@
             "Proof of Enrollment": true,
             "School ID": true
         },
-        "registration_date": "2026-04-08",
-        "renewal_date": "2026-04-22",
-        "renewal_requirements": {
-            "Last grades from last semester": true,
-            "Liquidation of 5000 from LGU": true,
-            "Certification of enrollment": true
-        }
+        "registration_date": "2026-04-08"
     },
     {
         "full_name": "Ella Navarro",
@@ -246,13 +234,7 @@
             "Proof of Enrollment": true,
             "School ID": true
         },
-        "registration_date": "2026-04-11",
-        "renewal_date": "2026-04-23",
-        "renewal_requirements": {
-            "Last grades from last semester": true,
-            "Liquidation of 5000 from LGU": true,
-            "Certification of enrollment": true
-        }
+        "registration_date": "2026-04-11"
     },
     {
         "full_name": "Diego Ramos",
@@ -336,13 +318,7 @@
             "Proof of Enrollment": true,
             "School ID": true
         },
-        "registration_date": "2026-04-15",
-        "renewal_date": "2026-04-24",
-        "renewal_requirements": {
-            "Last grades from last semester": true,
-            "Liquidation of 5000 from LGU": true,
-            "Certification of enrollment": true
-        }
+        "registration_date": "2026-04-15"
     },
     {
         "full_name": "Jerome Valdez",
@@ -426,13 +402,7 @@
             "Proof of Enrollment": true,
             "School ID": true
         },
-        "registration_date": "2026-04-19",
-        "renewal_date": "2026-04-25",
-        "renewal_requirements": {
-            "Last grades from last semester": true,
-            "Liquidation of 5000 from LGU": true,
-            "Certification of enrollment": true
-        }
+        "registration_date": "2026-04-19"
     },
     {
         "full_name": "Harold Santiago",
@@ -495,13 +465,7 @@
             "Proof of Enrollment": true,
             "School ID": true
         },
-        "registration_date": "2026-04-22",
-        "renewal_date": "2026-04-26",
-        "renewal_requirements": {
-            "Last grades from last semester": true,
-            "Liquidation of 5000 from LGU": true,
-            "Certification of enrollment": true
-        }
+        "registration_date": "2026-04-22"
     },
     {
         "full_name": "Monica Serrano",
@@ -585,13 +549,7 @@
             "Proof of Enrollment": true,
             "School ID": true
         },
-        "registration_date": "2026-04-26",
-        "renewal_date": "2026-04-27",
-        "renewal_requirements": {
-            "Last grades from last semester": true,
-            "Liquidation of 5000 from LGU": true,
-            "Certification of enrollment": true
-        }
+        "registration_date": "2026-04-26"
     },
     {
         "full_name": "Irene De Leon",
@@ -675,13 +633,7 @@
             "Proof of Enrollment": true,
             "School ID": true
         },
-        "registration_date": "2026-04-29",
-        "renewal_date": "2026-04-29",
-        "renewal_requirements": {
-            "Last grades from last semester": true,
-            "Liquidation of 5000 from LGU": true,
-            "Certification of enrollment": true
-        }
+        "registration_date": "2026-04-29"
     },
     {
         "full_name": "Clara Zamora",

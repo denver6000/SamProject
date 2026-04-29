@@ -1909,15 +1909,15 @@ class StudentInfoSystem:
                 for row in range(start_row, end_row + 1):
                     ws.cell(row=row, column=2).value = None
                     ws.cell(row=row, column=5).value = None
+                    ws.cell(row=row, column=10).value = None
 
                 for row_offset, student in enumerate(page_students):
                     row = start_row + row_offset
                     ws.cell(row=row, column=2).value = student.get("full_name", "")
                     ws.cell(row=row, column=5).value = default_pay
+                    ws.cell(row=row, column=10).value = default_pay
 
                 ws.cell(row=start_row + len(page_students), column=2).value = "X-X-X-X"
-
-                ws["I25"] = len(page_students) * default_pay
 
             wb.save(payroll_path)
             self.export_payroll_word(selected, word_template_path, word_path)
