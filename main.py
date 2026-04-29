@@ -22,7 +22,7 @@ class StudentInfoSystem:
         
         # Initialize school and course options
         self.school_options = [
-            'PHINMA Araullo University San Jose City Campus',
+            'PHINMA Araullo University San Jose City ',
             'Core Gateway College, Inc.',
             'San Jose Christian Colleges',
             'Golden Success University',
@@ -32,7 +32,7 @@ class StudentInfoSystem:
         ]
         
         self.course_mapping = {
-            'PHINMA Araullo University San Jose City Campus': [
+            'PHINMA Araullo University San Jose City ': [
                 'Accountancy', 'Business Administration', 'Hospitality Management', 'Criminology',
                 'Information Technology', 'Computer Science', 'Education (Elementary & Secondary)',
                 'Nursing', 'Civil Engineering'
@@ -292,7 +292,7 @@ class StudentInfoSystem:
         
         # Course mapping for each school
         self.course_mapping = {
-            'PHINMA Araullo University San Jose City Campus': [
+            'PHINMA Araullo University San Jose City ': [
                 'Accountancy', 'Business Administration', 'Hospitality Management', 'Criminology',
                 'Information Technology', 'Computer Science', 'Education (Elementary & Secondary)',
                 'Nursing', 'Civil Engineering'
