@@ -1,0 +1,86 @@
+{
+    "schools": [
+        "PHINMA Araullo University San Jose City Campus",
+        "Core Gateway College, Inc.",
+        "San Jose Christian Colleges",
+        "Golden Success University",
+        "STI College San Jose",
+        "Central Luzon State University",
+        "Others"
+    ],
+    "courses": {
+        "PHINMA Araullo University San Jose City Campus": [
+            "Accountancy",
+            "Business Administration",
+            "Hospitality Management",
+            "Criminology",
+            "Information Technology",
+            "Computer Science",
+            "Education (Elementary & Secondary)",
+            "Nursing",
+            "Civil Engineering"
+        ],
+        "Core Gateway College, Inc.": [
+            "Computer Science",
+            "Business Administration (Management, Accounting)",
+            "Political Science",
+            "Education (Elementary & Secondary)",
+            "Master's: Education, Public Administration"
+        ],
+        "San Jose Christian Colleges": [
+            "Business Administration",
+            "Education",
+            "Criminology",
+            "Information Technology",
+            "Hospitality / Tourism"
+        ],
+        "Golden Success University": [
+            "Business Administration",
+            "Education",
+            "Information Technology",
+            "Criminology"
+        ],
+        "STI College San Jose": [
+            "Information Technology",
+            "Computer Science",
+            "Hospitality Management",
+            "Tourism Management",
+            "Business Administration"
+        ],
+        "Central Luzon State University": [
+            "BS Agriculture",
+            "BS Agribusiness",
+            "BS Agricultural and Biosystems Engineering",
+            "BS Animal Science / Animal Husbandry",
+            "BS Fisheries / Aquaculture",
+            "BS Biology",
+            "BS Chemistry",
+            "BS Environmental Science",
+            "BS Civil Engineering",
+            "BS Information Technology",
+            "BS Accountancy",
+            "BS Accounting Technology",
+            "BS Business Administration",
+            "BS Entrepreneurship",
+            "Bachelor of Elementary Education (BEEd)",
+            "Bachelor of Secondary Education (BSEd) \u2013 English",
+            "Bachelor of Secondary Education (BSEd) \u2013 Math",
+            "Bachelor of Secondary Education (BSEd) \u2013 Science",
+            "Bachelor of Secondary Education (BSEd) \u2013 Filipino",
+            "Bachelor of Secondary Education (BSEd) \u2013 Social Studies",
+            "Bachelor of Secondary Education (BSEd) \u2013 MAPEH",
+            "Bachelor of Secondary Education (BSEd) \u2013 TLE",
+            "Bachelor of Early Childhood Education",
+            "Bachelor of Physical Education",
+            "BA Psychology",
+            "BA Social Sciences",
+            "BA Filipino",
+            "BA Language / Literature",
+            "BS Hospitality Management",
+            "BS Food Technology",
+            "BS Fashion and Textile Technology",
+            "BS Development Communication",
+            "Doctor of Veterinary Medicine (DVM)"
+        ]
+    }
+}
